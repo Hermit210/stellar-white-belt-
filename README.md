@@ -1,0 +1,90 @@
+# Lumen Pay — Stellar Testnet Payment dApp
+
+A minimal "Simple Payment dApp" built for the **Superteam Stellar Frontend Challenge — Level 1 (White Belt)**.
+
+Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, and send an XLM payment to any address — with clear success/failure feedback and the transaction hash.
+
+## Features
+
+- **Wallet connect / disconnect** via the [Freighter](https://freighter.app) browser extension
+- **Network guard** — refuses to proceed unless Freighter is set to Testnet
+- **Live XLM balance** fetched from Horizon Testnet, with a manual refresh button
+- **Send XLM** to any Stellar (`G...`) address, with an optional memo
+- **Transaction feedback** — pending / success / error states, with the tx hash linked to [stellar.expert](https://stellar.expert/explorer/testnet)
+- Basic input validation (address format, positive amount) and error handling (unfunded accounts, wrong network, rejected signature, failed submission)
+
+## Tech stack
+
+- [React](https://react.dev) + TypeScript + [Vite](https://vitejs.dev)
+- [`@stellar/freighter-api`](https://www.npmjs.com/package/@stellar/freighter-api) — wallet connection & transaction signing
+- [`@stellar/stellar-sdk`](https://www.npmjs.com/package/@stellar/stellar-sdk) — building/submitting transactions and querying Horizon Testnet
+
+## Project structure
+
+```
+src/
+  lib/stellar.ts             # All Freighter + Horizon logic (connect, balance, send payment)
+  components/
+    WalletPanel.tsx           # Connect/disconnect + balance UI
+    SendPaymentForm.tsx       # Destination/amount/memo form
+    TxFeedback.tsx            # Pending/success/error transaction feedback
+  App.tsx                     # Wires state + components together
+  App.css                     # Design tokens & styling
+```
+
+## Setup instructions (run locally)
+
+**Prerequisites**
+
+- [Node.js](https://nodejs.org) 18+
+- The [Freighter](https://www.freighter.app/) browser extension, set to **Test Net** (Freighter → Settings → Preferences → Network)
+- A Freighter account funded with testnet XLM (the app will tell you if it isn't — you can fund it via [Friendbot](https://friendbot.stellar.org/?addr=YOUR_PUBLIC_KEY) or the "Fund with Friendbot" option in Freighter itself)
+
+**Install & run**
+
+```bash
+git clone https://github.com/<your-username>/stellar-white-belt.git
+cd stellar-white-belt
+npm install
+npm run dev
+```
+
+Then open the printed local URL (typically `http://localhost:5173`) in a browser that has the Freighter extension installed.
+
+**Build for production**
+
+```bash
+npm run build
+npm run preview
+```
+
+## How to test the full flow
+
+1. Click **Connect Freighter** and approve the connection popup.
+2. Confirm your address and XLM balance appear in the Wallet panel.
+3. In the Send panel, paste a second testnet address (e.g. a second Freighter account, or any `G...` address) and an amount.
+4. Click **Send XLM**, approve the signature request in Freighter.
+5. Watch the feedback panel move from *pending* → *confirmed*, with a link to the transaction on Stellar Expert.
+6. Click **Disconnect** to clear the session.
+
+## Screenshots
+
+> Screenshots below demonstrate the required states: wallet connected, balance displayed, a successful testnet transaction, and the transaction result shown to the user.
+
+### Wallet connected state
+![Wallet connected](./screenshots/wallet-connected.png)
+
+### Balance displayed
+![Balance displayed](./screenshots/balance-displayed.png)
+
+### Successful testnet transaction
+![Sending transaction](./screenshots/transaction-pending.png)
+
+### Transaction result shown to the user
+![Transaction confirmed](./screenshots/transaction-success.png)
+
+## Notes
+
+- This app only ever targets **Stellar Testnet** — it will not connect if Freighter is switched to Public/Mainnet.
+- No private keys ever touch this app's code; all signing happens inside the Freighter extension.
+- Built as part of the Superteam India Stellar Ambassador track.
