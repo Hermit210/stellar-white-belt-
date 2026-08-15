@@ -1,6 +1,6 @@
-# Lumen Pay — Stellar Testnet Payment dApp
+# SplitStellar — White Belt Payment dApp
 
-A minimal "Simple Payment dApp" built for the **Superteam Stellar Frontend Challenge — Level 1 (White Belt)**.
+A minimal "Simple Payment dApp" built for **Stellar Journey to Mastery — White Belt (Level 1)**, and the first building block of **SplitStellar** — a Stellar-native group-payments app (bill splitting + recurring payments via Soroban escrow) that I'll extend through Yellow and Orange Belt.
 
 Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, and send an XLM payment to any address — with clear success/failure feedback and the transaction hash.
 
@@ -10,6 +10,7 @@ Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, a
 - **Network guard** — refuses to proceed unless Freighter is set to Testnet
 - **Live XLM balance** fetched from Horizon Testnet, with a manual refresh button
 - **Send XLM** to any Stellar (`G...`) address, with an optional memo
+- **Friendbot funding fallback** — if your account isn't funded yet, one click funds it on testnet
 - **Transaction feedback** — pending / success / error states, with the tx hash linked to [stellar.expert](https://stellar.expert/explorer/testnet)
 - Basic input validation (address format, positive amount) and error handling (unfunded accounts, wrong network, rejected signature, failed submission)
 
@@ -43,8 +44,8 @@ src/
 **Install & run**
 
 ```bash
-git clone https://github.com/<your-username>/stellar-white-belt.git
-cd stellar-white-belt
+git clone https://github.com/Hermit210/splitstellar-white-belt.git
+cd splitstellar-white-belt
 npm install
 npm run dev
 ```
@@ -87,4 +88,4 @@ npm run preview
 
 - This app only ever targets **Stellar Testnet** — it will not connect if Freighter is switched to Public/Mainnet.
 - No private keys ever touch this app's code; all signing happens inside the Freighter extension.
-- Built as part of the Superteam India Stellar Ambassador track.
+- Part of my Stellar Journey to Mastery build track — next up is multi-wallet bill splitting via a Soroban escrow contract for Yellow Belt.

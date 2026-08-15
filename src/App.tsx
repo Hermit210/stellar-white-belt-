@@ -4,6 +4,7 @@ import {
   connectWallet,
   disconnectWallet,
   fetchXlmBalance,
+  fundWithFriendbot,
   sendPayment,
   isValidStellarAddress,
   type SendPaymentResult,
@@ -26,6 +27,7 @@ function App() {
   const [balanceError, setBalanceError] = useState<string | null>(null);
   const [connecting, setConnecting] = useState(false);
   const [connectError, setConnectError] = useState<string | null>(null);
+  const [funding, setFunding] = useState(false);
   const [txState, setTxState] = useState<TxState>({ status: "idle" });
 
   const refreshBalance = useCallback(async (key: string) => {
@@ -100,6 +102,19 @@ function App() {
     }
   };
 
+  const handleFundWithFriendbot = async () => {
+    if (!publicKey) return;
+    setFunding(true);
+    try {
+      await fundWithFriendbot(publicKey);
+      await refreshBalance(publicKey);
+    } catch (err: any) {
+      setBalanceError(err.message ?? "Friendbot funding failed. Try again in a moment.");
+    } finally {
+      setFunding(false);
+    }
+  };
+
   return (
     <div className="app-shell">
       <div className="orbit-field" aria-hidden="true">
@@ -111,7 +126,7 @@ function App() {
       <header className="app-header">
         <div className="brand">
           <span className="brand-mark">✦</span>
-          <span className="brand-name">Lumen Pay</span>
+          <span className="brand-name">SplitStellar</span>
         </div>
         <span className="network-pill">Stellar Testnet</span>
       </header>
@@ -122,7 +137,8 @@ function App() {
           <h1>Send XLM without leaving the tab open to Horizon docs.</h1>
           <p className="hero-sub">
             Connect Freighter, check your testnet balance, and fire off a payment —
-            with the transaction hash to prove it happened.
+            with the transaction hash to prove it happened. First payment primitive
+            for SplitStellar's group-payments journey.
           </p>
         </section>
 
@@ -135,9 +151,11 @@ function App() {
             balanceError={balanceError}
             connecting={connecting}
             connectError={connectError}
+            funding={funding}
             onConnect={handleConnect}
             onDisconnect={handleDisconnect}
             onRefreshBalance={() => publicKey && refreshBalance(publicKey)}
+            onFundWithFriendbot={handleFundWithFriendbot}
           />
 
           <SendPaymentForm
@@ -152,7 +170,7 @@ function App() {
 
       <footer className="app-footer">
         <p>
-          Built for the Superteam Stellar Frontend Challenge · Testnet only, no
+          Built for Stellar Journey to Mastery (White Belt) · Testnet only, no
           real funds involved.
         </p>
       </footer>

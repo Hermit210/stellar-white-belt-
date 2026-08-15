@@ -6,9 +6,11 @@ interface WalletPanelProps {
   balanceError: string | null;
   connecting: boolean;
   connectError: string | null;
+  funding: boolean;
   onConnect: () => void;
   onDisconnect: () => void;
   onRefreshBalance: () => void;
+  onFundWithFriendbot: () => void;
 }
 
 function truncateAddress(address: string): string {
@@ -23,9 +25,11 @@ export default function WalletPanel({
   balanceError,
   connecting,
   connectError,
+  funding,
   onConnect,
   onDisconnect,
   onRefreshBalance,
+  onFundWithFriendbot,
 }: WalletPanelProps) {
   return (
     <section className="panel wallet-panel">
@@ -60,7 +64,18 @@ export default function WalletPanel({
             {balanceLoading ? (
               <span className="balance-value balance-loading">fetching…</span>
             ) : balanceError ? (
-              <span className="field-error">{balanceError}</span>
+              <div className="balance-error-block">
+                <span className="field-error">{balanceError}</span>
+                {balanceError.toLowerCase().includes("fund") && (
+                  <button
+                    className="btn btn-ghost btn-small"
+                    onClick={onFundWithFriendbot}
+                    disabled={funding}
+                  >
+                    {funding ? "Funding…" : "Fund with Friendbot"}
+                  </button>
+                )}
+              </div>
             ) : (
               <span className="balance-value">{Number(balance).toFixed(4)} XLM</span>
             )}
