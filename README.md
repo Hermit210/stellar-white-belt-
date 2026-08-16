@@ -10,18 +10,37 @@ Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, a
 ✅ Freighter wallet integration
 ✅ Stellar Testnet only (app blocks connection on any other network)
 
+
+
+
 **2. Wallet Connection**
 ✅ Wallet connect functionality
 ✅ Wallet disconnect functionality
+
+
+
+
+
 
 **3. Balance Handling**
 ✅ Fetch connected wallet's XLM balance from Horizon Testnet
 ✅ Balance displayed clearly in the UI
 
+
+
+
+
+
 **4. Transaction Flow**
 ✅ Send an XLM transaction on Stellar Testnet
 ✅ Success/failure state shown to the user
 ✅ Transaction hash / confirmation message shown on success
+
+
+
+
+
+
 
 **5. Development Standards**
 ✅ Clean UI with clear separation of concerns (wallet logic, balance logic, transaction
@@ -29,8 +48,21 @@ Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, a
 ✅ Error handling for: Freighter not installed, wrong network, unfunded account,
    invalid destination address, rejected signature, and failed submission
 
+
+
+
+
+
+
 **6. Git History**
 ✅ 10+ meaningful, atomic commits
+
+
+
+
+
+
+
 
 **7. Submission**
 ⬜ Public GitHub repository
@@ -105,10 +137,12 @@ npm run preview
 > Screenshots below demonstrate the required states: wallet connected, balance displayed, a successful testnet transaction, and the transaction result shown to the user.
 
 ### Wallet connected state
-https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-17%20012601.png?raw=true
+<img width="1907" height="1020" alt="image" src="https://github.com/user-attachments/assets/527d0021-cc43-4bf4-a60e-d2df9b9d217d" />
 
-### Balance displayed
-https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-17%20012835.png?raw=true
+
+### confirm transaction 
+<img width="1812" height="800" alt="image" src="https://github.com/user-attachments/assets/cd4b0702-362c-44db-b8c6-41b80e6d2d1a" />
+
 
 ### Successful testnet transaction
 <img width="1438" height="710" alt="image" src="https://github.com/user-attachments/assets/d9d18085-45fd-47eb-80ce-ccf24ce68891" />
@@ -116,6 +150,8 @@ https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-
 
 ### Transaction result shown to the user
 <img width="1465" height="437" alt="image" src="https://github.com/user-attachments/assets/713b6557-5d7e-4692-99e4-b84541a069d3" />
+
+## Transaction shown
 
 <img width="1906" height="990" alt="image" src="https://github.com/user-attachments/assets/da77aff2-a90b-49e1-80b3-cae3bcb3625c" />
 
