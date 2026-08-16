@@ -117,6 +117,7 @@ https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-
 ### Transaction result shown to the user
 <img width="1465" height="437" alt="image" src="https://github.com/user-attachments/assets/713b6557-5d7e-4692-99e4-b84541a069d3" />
 
+<img width="1906" height="990" alt="image" src="https://github.com/user-attachments/assets/da77aff2-a90b-49e1-80b3-cae3bcb3625c" />
 
 ## Notes
 
