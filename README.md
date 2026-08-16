@@ -7,34 +7,34 @@ Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, a
 ## Requirements checklist
 
 **1. Wallet Setup**
-- [x] Freighter wallet integration
-- [x] Stellar Testnet only (app blocks connection on any other network)
+✅ Freighter wallet integration
+✅ Stellar Testnet only (app blocks connection on any other network)
 
 **2. Wallet Connection**
-- [x] Wallet connect functionality
-- [x] Wallet disconnect functionality
+✅ Wallet connect functionality
+✅ Wallet disconnect functionality
 
 **3. Balance Handling**
-- [x] Fetch connected wallet's XLM balance from Horizon Testnet
-- [x] Balance displayed clearly in the UI
+✅ Fetch connected wallet's XLM balance from Horizon Testnet
+✅ Balance displayed clearly in the UI
 
 **4. Transaction Flow**
-- [x] Send an XLM transaction on Stellar Testnet
-- [x] Success/failure state shown to the user
-- [x] Transaction hash / confirmation message shown on success
+✅ Send an XLM transaction on Stellar Testnet
+✅ Success/failure state shown to the user
+✅ Transaction hash / confirmation message shown on success
 
 **5. Development Standards**
-- [x] Clean UI with clear separation of concerns (wallet logic, balance logic, transaction
-      logic, and UI components are all separate files/modules)
-- [x] Error handling for: Freighter not installed, wrong network, unfunded account,
-      invalid destination address, rejected signature, and failed submission
+✅ Clean UI with clear separation of concerns (wallet logic, balance logic, transaction
+   logic, and UI components are all separate files/modules)
+✅ Error handling for: Freighter not installed, wrong network, unfunded account,
+   invalid destination address, rejected signature, and failed submission
 
 **6. Git History**
-- [x] 10+ meaningful, atomic commits
+✅ 10+ meaningful, atomic commits
 
 **7. Submission**
-- [ ] Public GitHub repository
-- [x] README with project description, setup instructions, and screenshots
+⬜ Public GitHub repository
+⬜ README with project description, setup instructions, and screenshots
 
 ## Features
 
