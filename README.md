@@ -44,8 +44,8 @@ src/
 **Install & run**
 
 ```bash
-git clone https://github.com/Hermit210/splitstellar-white-belt.git
-cd splitstellar-white-belt
+git clone https://github.com/Hermit210/stellar-white-belt-.git
+cd stellar-white-belt-
 npm install
 npm run dev
 ```
