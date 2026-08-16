@@ -1,13 +1,13 @@
 :root {
-  --bg: #0a0e17;
-  --panel: #121826;
-  --panel-border: #212a3d;
-  --text: #e8ecf5;
-  --muted: #8792a8;
-  --accent-a: #7c5cff;
-  --accent-b: #33d6ff;
-  --success: #35d488;
-  --error: #ff6b6b;
+  --bg: #fdf8f5;
+  --panel: #ffffff;
+  --panel-border: #f0d6bd;
+  --text: #241a12;
+  --muted: #8a7566;
+  --accent-a: #c2410c;
+  --accent-b: #ea580c;
+  --success: #15803d;
+  --error: #dc2626;
   --pending: #ffc65c;
   --mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
   --sans: "Inter", system-ui, sans-serif;
@@ -71,7 +71,7 @@ body {
 .dot-c {
   width: 260px;
   height: 260px;
-  background: #4a3fb0;
+  background: #9a3412;
   bottom: -80px;
   left: 30%;
   animation: drift-c 26s ease-in-out infinite alternate;
@@ -141,8 +141,8 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent-b);
-  border: 1px solid rgba(51, 214, 255, 0.35);
-  background: rgba(51, 214, 255, 0.08);
+  border: 1px solid rgba(234, 88, 12, 0.35);
+  background: rgba(234, 88, 12, 0.08);
   padding: 6px 12px;
   border-radius: 999px;
 }
@@ -247,11 +247,11 @@ body {
 .wallet-address {
   font-family: var(--mono);
   font-size: 0.85rem;
-  background: rgba(124, 92, 255, 0.1);
-  border: 1px solid rgba(124, 92, 255, 0.25);
+  background: rgba(194, 65, 12, 0.1);
+  border: 1px solid rgba(194, 65, 12, 0.25);
   padding: 4px 10px;
   border-radius: 8px;
-  color: var(--accent-b);
+  color: var(--accent-a);
 }
 
 .status-chip {
@@ -333,7 +333,7 @@ body {
 }
 
 .field input {
-  background: #0d1220;
+  background: #fff6ee;
   border: 1px solid var(--panel-border);
   border-radius: 10px;
   padding: 10px 12px;
@@ -407,7 +407,7 @@ body {
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
-  color: #05070c;
+  color: #fff8f2;
 }
 
 .btn-outline {
@@ -417,8 +417,8 @@ body {
 }
 
 .btn-ghost {
-  background: rgba(124, 92, 255, 0.1);
-  color: var(--accent-b);
+  background: rgba(194, 65, 12, 0.1);
+  color: var(--accent-a);
 }
 
 .btn-block {
@@ -507,8 +507,8 @@ body {
   margin: 4px 0 10px;
   padding: 10px 12px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(124, 92, 255, 0.14), rgba(51, 214, 255, 0.1));
-  border: 1px solid rgba(124, 92, 255, 0.22);
+  background: linear-gradient(135deg, rgba(194, 65, 12, 0.14), rgba(234, 88, 12, 0.1));
+  border: 1px solid rgba(194, 65, 12, 0.22);
 }
 
 .tx-note-icon {
