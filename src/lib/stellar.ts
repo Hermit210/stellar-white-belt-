@@ -136,6 +136,18 @@ export async function sendPayment(
   amount: string,
   memo?: string
 ): Promise<SendPaymentResult> {
+  // Re-check the network right before signing: Freighter can be switched to
+  // another network at any point after the initial connect.
+  const networkDetails = await getNetworkDetails();
+  if (networkDetails.error) {
+    throw new Error(networkDetails.error.message);
+  }
+  if (networkDetails.networkPassphrase !== TESTNET_PASSPHRASE) {
+    throw new Error(
+      `Freighter is set to "${networkDetails.network}", not Testnet. Switch back to Test Net before sending.`
+    );
+  }
+
   const sourceAccount = await horizonServer.loadAccount(sourcePublicKey);
 
   const txBuilder = new TransactionBuilder(sourceAccount, {
@@ -169,12 +181,40 @@ export async function sendPayment(
     TESTNET_PASSPHRASE
   );
 
-  const submitResult = await horizonServer.submitTransaction(signedTx);
-
-  return { hash: submitResult.hash, ledger: submitResult.ledger };
+  try {
+    const submitResult = await horizonServer.submitTransaction(signedTx);
+    return { hash: submitResult.hash, ledger: submitResult.ledger };
+  } catch (err) {
+    throw new Error(describeHorizonError(err));
+  }
 }
 
 /** Basic format check before we even try to build a transaction. */
 export function isValidStellarAddress(address: string): boolean {
   return /^G[A-Z2-7]{55}$/.test(address.trim());
+}
+
+/**
+ * Turns a Horizon submission failure into a message a user can act on.
+ * Horizon reports failures as problem+json with `extras.result_codes`
+ * (e.g. op_underfunded, op_no_destination) rather than a plain message.
+ */
+export function describeHorizonError(err: any): string {
+  const resultCodes = err?.response?.data?.extras?.result_codes;
+  if (resultCodes) {
+    const opCodes: string[] = resultCodes.operations ?? [];
+    if (opCodes.includes("op_underfunded")) {
+      return "Transaction failed: insufficient balance to cover this payment plus the network fee.";
+    }
+    if (opCodes.includes("op_no_destination")) {
+      return "Transaction failed: destination account doesn't exist on testnet yet (it needs to be funded first).";
+    }
+    if (opCodes.length > 0) {
+      return `Transaction failed: ${opCodes.join(", ")}.`;
+    }
+    if (resultCodes.transaction) {
+      return `Transaction failed: ${resultCodes.transaction}.`;
+    }
+  }
+  return err?.message ?? "Transaction failed. Please try again.";
 }
