@@ -437,6 +437,30 @@ body {
   word-break: break-all;
 }
 
+.tx-note-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.14), rgba(51, 214, 255, 0.1));
+  border: 1px solid rgba(124, 92, 255, 0.22);
+}
+
+.tx-note-icon {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.tx-note-text {
+  margin: 0;
+  font-weight: 500;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
 .tx-hash-link {
   color: var(--accent-b);
   text-decoration: none;

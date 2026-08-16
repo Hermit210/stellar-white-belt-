@@ -8,7 +8,7 @@ export default function TxFeedback({ state }: TxFeedbackProps) {
   if (state.status === "idle") return null;
 
   return (
-    <section className={`tx-feedback tx-${state.status}`} role="status">
+    <section key={state.status} className={`tx-feedback tx-${state.status}`} role="status">
       {state.status === "pending" && (
         <>
           <span className="tx-dot tx-dot-pending" />
@@ -24,6 +24,12 @@ export default function TxFeedback({ state }: TxFeedbackProps) {
           <span className="tx-dot tx-dot-success" />
           <div>
             <p className="tx-title">Payment confirmed</p>
+            {state.note && (
+              <div className="tx-note-card">
+                <span className="tx-note-icon" aria-hidden="true">💌</span>
+                <p className="tx-note-text">{state.note}</p>
+              </div>
+            )}
             <p className="tx-sub">
               Hash:{" "}
               <a

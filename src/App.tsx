@@ -16,7 +16,7 @@ import TxFeedback from "./components/TxFeedback";
 export type TxState =
   | { status: "idle" }
   | { status: "pending" }
-  | { status: "success"; result: SendPaymentResult }
+  | { status: "success"; result: SendPaymentResult; note?: string }
   | { status: "error"; message: string };
 
 function App() {
@@ -92,7 +92,7 @@ function App() {
     setTxState({ status: "pending" });
     try {
       const result = await sendPayment(publicKey, destination.trim(), amount, memo || undefined);
-      setTxState({ status: "success", result });
+      setTxState({ status: "success", result, note: memo.trim() || undefined });
       refreshBalance(publicKey);
     } catch (err: any) {
       setTxState({
