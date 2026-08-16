@@ -77,7 +77,9 @@ export default function WalletPanel({
                 )}
               </div>
             ) : (
-              <span className="balance-value">{Number(balance).toFixed(4)} XLM</span>
+              <span key={balance ?? "none"} className="balance-value">
+                {Number(balance).toFixed(4)} XLM
+              </span>
             )}
           </div>
 

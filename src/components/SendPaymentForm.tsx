@@ -63,7 +63,11 @@ export default function SendPaymentForm({ disabled, sending, onSend }: SendPayme
           />
         </label>
 
-        <button className="btn btn-primary btn-block" type="submit" disabled={disabled}>
+        <button
+          className={`btn btn-primary btn-block${sending ? " btn-sending" : ""}`}
+          type="submit"
+          disabled={disabled}
+        >
           {sending ? "Sending…" : "Send XLM"}
         </button>
 
