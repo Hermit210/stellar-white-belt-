@@ -105,16 +105,18 @@ npm run preview
 > Screenshots below demonstrate the required states: wallet connected, balance displayed, a successful testnet transaction, and the transaction result shown to the user.
 
 ### Wallet connected state
-![Wallet connected](./screenshots/wallet-connected.png)
+https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-17%20012601.png?raw=true
 
 ### Balance displayed
-![Balance displayed](./screenshots/balance-displayed.png)
+https://github.com/Hermit210/stellar-white-belt-/blob/main/Screenshot%202026-08-17%20012835.png?raw=true
 
 ### Successful testnet transaction
-![Sending transaction](./screenshots/transaction-pending.png)
+<img width="1438" height="710" alt="image" src="https://github.com/user-attachments/assets/d9d18085-45fd-47eb-80ce-ccf24ce68891" />
+
 
 ### Transaction result shown to the user
-![Transaction confirmed](./screenshots/transaction-success.png)
+<img width="1465" height="437" alt="image" src="https://github.com/user-attachments/assets/713b6557-5d7e-4692-99e4-b84541a069d3" />
+
 
 ## Notes
 
