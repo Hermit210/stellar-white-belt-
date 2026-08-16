@@ -4,6 +4,38 @@ A minimal "Simple Payment dApp" built for **Stellar Journey to Mastery — White
 
 Connect a Freighter wallet, view your live XLM balance on **Stellar Testnet**, and send an XLM payment to any address — with clear success/failure feedback and the transaction hash.
 
+## Requirements checklist
+
+**1. Wallet Setup**
+- [x] Freighter wallet integration
+- [x] Stellar Testnet only (app blocks connection on any other network)
+
+**2. Wallet Connection**
+- [x] Wallet connect functionality
+- [x] Wallet disconnect functionality
+
+**3. Balance Handling**
+- [x] Fetch connected wallet's XLM balance from Horizon Testnet
+- [x] Balance displayed clearly in the UI
+
+**4. Transaction Flow**
+- [x] Send an XLM transaction on Stellar Testnet
+- [x] Success/failure state shown to the user
+- [x] Transaction hash / confirmation message shown on success
+
+**5. Development Standards**
+- [x] Clean UI with clear separation of concerns (wallet logic, balance logic, transaction
+      logic, and UI components are all separate files/modules)
+- [x] Error handling for: Freighter not installed, wrong network, unfunded account,
+      invalid destination address, rejected signature, and failed submission
+
+**6. Git History**
+- [x] 10+ meaningful, atomic commits
+
+**7. Submission**
+- [ ] Public GitHub repository
+- [x] README with project description, setup instructions, and screenshots
+
 ## Features
 
 - **Wallet connect / disconnect** via the [Freighter](https://freighter.app) browser extension
